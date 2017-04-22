@@ -18,20 +18,80 @@
             <div class="row">
                 <div class="col-lg-12">
                     <section>
-                        <h3><time datetime="2017-04-18">04/18/2017</time></h3>
+                        <h3><time datetime="2017-04-22">04/22/2017</time></h3>
                         <article>
-                            <h4>Reduce function</h4>
-                            <p>This function can be used on any object that extends the Iterator object... The output of this function is a single value, which is why it is called 'reduce'.</p>
+                            <h4>Hoisting</h4>
+                            <p>This is an example of hoisting. Hoisting is the concept that javascript "looks ahead" to find variable definitions.
+                                 In the following example, it "looks ahead to the second value of the var and returns "Undefined" </p>
                             <pre><code>
-                                let numbers = [1,2,3,4,5,6,7,8,9];
-                                let sum = (a, b) => {
-                                    return a + b;
-                                };
-                                numbers.reduce((a,b) => sum(a,b));
+                             var name = "Baggins";
+
+                            (function () {
+                                // Outputs: "Original name was undefined"
+                                console.log("Original name was " + name);
+
+                                var name = "Underhill";
+
+                                // Outputs: "New name is Underhill"
+                                console.log("New name is " + name);
+                            })();
                             </code></pre>
                             <h5>Resources</h5>
                             <ul>
-                                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce">MDN - Reduce</a></li>
+                                <li><a href="http://adripofjavascript.com/blog/drips/variable-and-function-hoisting">A Drip of JS - Hoisting</a></li>
+                            </ul>
+                        </article>
+                    <hr/>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <section>
+                        <h3><time datetime="2017-04-22">04/22/2017</time></h3>
+                        <article>
+                            <h4>Closures</h4>
+                            <p>This is an example of using closures. By nesting the function within a function it makes it protected and reusable throughout your code.  </p>
+                            <pre><code>
+                           function makeFunc() {
+                            var name = "Brooklyn";
+                            function displayName() {
+                                alert(name);
+                            }
+                            return displayName;
+                            }
+
+                            var myFunc = makeFunc();
+                            myFunc();
+                            </code></pre>
+                            <h5>Resources</h5>
+                            <ul>
+                                <li><a href="http://www-db.deis.unibo.it/courses/TW/DOCS/JS/developer.mozilla.org/en-US/docs/Web/JavaScript/Closures.html">MDN - Closures</a></li>
+                            </ul>
+                        </article>
+                    <hr/>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <section>
+                        <h3><time datetime="2017-04-22">04/22/2017</time></h3>
+                        <article>
+                            <h4>"use strict"</h4>
+                            <p>By writing 'use strict' at the start of your code javascript with throw errors for code that will either not work or work incorrectly. 
+                                One example is using a leading zero in for a number. Since using a leading zero can change the number's value, 'use strict' will throw 
+                                a syntax error if you try to use it. There are many different properites of 'use strict' that can be found in the resource listed below.
+                            </p>
+                            <pre><code>
+                           'use strict';
+                            var sum = 015 + // !!! syntax error
+                                    197 +
+                                    142;
+                            </code></pre>
+                            <h5>Resources</h5>
+                            <ul>
+                                <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode">MDN - 'use strict'</a></li>
                             </ul>
                         </article>
                     <hr/>
